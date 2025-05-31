@@ -1,6 +1,6 @@
 <template>
-    <div class="q-mt-sm">
-        <div class="row q-col-gutter-md">
+    <div class="">
+        <div class="row q-col-gutter-sm">
             <div class="col">
                 <div class="row secondary-color q-pa-md" style="border-radius: 6px;">
                     <div class="row justify-center items-center blue-color" style="font-size: 36px; border-radius: 8px;">

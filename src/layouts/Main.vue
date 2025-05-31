@@ -15,7 +15,7 @@
         show-if-above
         :width="250"
         :breakpoint="500"
-        class="primary-color q-pa-sm"
+        class="primary-color q-py-sm q-pl-sm"
       >
         <q-scroll-area class="fit secondary-color text-white" style="border-radius: 8px;">
           <q-list padding class="menu-list">
