@@ -24,6 +24,9 @@
                 <div class="col-4 q-mt-sm">
                     <pengeluaranTerakhir/>
                 </div>
+                <div class="col-4 q-mt-sm">
+                    <pengeluaranBerdasarkanKategori/>
+                </div>
             </div>
         </div>
     </div>
@@ -36,6 +39,7 @@ import transaksiTerakhir from '../components/beranda/TransaksiTerakhir.vue'
 import transaksiBulanan from '../components/beranda/TransaksiBulanan.vue' 
 import pemasukaanTerakhir from 'src/components/beranda/PemasukaanTerakhir.vue'
 import pengeluaranTerakhir from 'src/components/beranda/PengeluaranTerakhir.vue'
+import pengeluaranBerdasarkanKategori from 'src/components/beranda/PengeluaranBerdasarkanKategori.vue'
 
 export default({
     components:{
@@ -44,7 +48,8 @@ export default({
         transaksiTerakhir,
         transaksiBulanan,
         pemasukaanTerakhir,
-        pengeluaranTerakhir
+        pengeluaranTerakhir,
+        pengeluaranBerdasarkanKategori
     },
     data() {
         return {
