@@ -29,14 +29,14 @@ export default {
     data() {
         return {
             series: [
-                {
-                    name: 'Pemasukan',
-                    data: [500000, 300000, 400000, 200000, 500000]
-                },
-                {
-                    name: 'Pengeluaran',
-                    data: [200000, 250000, 300000, 50000, 200000]
-                },
+                // {
+                //     name: 'Pemasukan',
+                //     data: [500000, 300000, 400000, 200000, 500000]
+                // },
+                // {
+                //     name: 'Pengeluaran',
+                //     data: [200000, 250000, 300000, 50000, 200000]
+                // },
             ],
             chartOptions: {
                 chart: {
@@ -75,6 +75,14 @@ export default {
                 },
             }
         }
-    }
+    },
+    mounted() {
+        setTimeout(() => {
+            this.series = [
+                { name: 'Pemasukan', data: [500000, 300000, 400000, 200000, 500000] },
+                { name: 'Pengeluaran', data: [200000, 250000, 300000, 50000, 200000] }
+            ]
+        }, 50)
+    },
 }
 </script>

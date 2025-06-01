@@ -27,7 +27,7 @@
               />
             </q-item>
 
-            <q-item clickable v-ripple>
+            <q-item clickable v-ripple to="/beranda" tag="router-link">
               <q-item-section avatar>
                 <q-icon name="home" />
               </q-item-section>
@@ -37,7 +37,7 @@
               </q-item-section>
             </q-item>
 
-            <q-item clickable v-ripple>
+            <q-item clickable v-ripple to="/transaksi" tag="router-link">
               <q-item-section avatar>
                 <q-icon name="account_balance_wallet" />
               </q-item-section>
@@ -47,7 +47,7 @@
               </q-item-section>
             </q-item>
 
-            <q-item clickable v-ripple>
+            <q-item clickable v-ripple to="/laporan" tag="router-link">
               <q-item-section avatar>
                 <q-icon name="equalizer" />
               </q-item-section>
@@ -57,7 +57,7 @@
               </q-item-section>
             </q-item>
 
-            <q-item clickable v-ripple>
+            <q-item clickable v-ripple to="/profil" tag="router-link">
               <q-item-section avatar>
                 <q-icon name="person" />
               </q-item-section>
@@ -71,13 +71,13 @@
       </q-drawer>
       
       <q-page-container>
-        <beranda/>
+        <router-view />
       </q-page-container>
     </q-layout>
 </template>
 
 <script>
-  import beranda from '../layouts/Beranda.vue'
+  import beranda from '../pages/Beranda.vue'
   import dayjs from 'dayjs';
   import 'dayjs/locale/id'
 
