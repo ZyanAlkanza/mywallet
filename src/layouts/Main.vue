@@ -39,7 +39,7 @@
             </template>
           </q-select>
 
-          <q-btn color="primary" label="Pilih Bulan" icon="calendar_today">
+          <q-btn color="primary" icon="calendar_today">
             <q-menu>
               <div class="row no-wrap q-pa-md">
                 <div class="column">
@@ -85,153 +85,144 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-        v-model="drawer"
-        show-if-above
-        :width="250"
-        :breakpoint="500"
-        class="primary-color q-py-sm q-pl-sm"
-      >
-        <q-scroll-area class="fit secondary-color text-white" style="border-radius: 8px;">
-          <q-list padding class="menu-list">
-            <q-item class="row justify-center q-mb-md">
-              <q-img
-                src="../assets/logo.png"
-                fit="contain"
-                style="width: 60%;"
-              />
-            </q-item>
+    <q-drawer class="primary-color q-py-sm q-pl-sm" show-if-above v-model="drawer" side="left">
+      <div class="column fit secondary-color q-py-sm text-white" style="border-radius: 8px;">
+        <q-list>
+          <q-item class="row justify-center q-mb-md">
+            <q-img
+              src="../assets/logo.png"
+              fit="contain"
+              style="width: 60%;"
+            />
+          </q-item>
 
-            <q-item clickable v-ripple to="/beranda" tag="router-link">
-              <q-item-section avatar>
-                <q-icon name="home" />
-              </q-item-section>
+          <q-item clickable v-ripple to="/beranda" tag="router-link">
+            <q-item-section avatar><q-icon name="home" /></q-item-section>
+            <q-item-section>Beranda</q-item-section>
+          </q-item>
 
-              <q-item-section>
-                Beranda
-              </q-item-section>
-            </q-item>
+          <q-item clickable v-ripple to="/transaksi" tag="router-link">
+            <q-item-section avatar><q-icon name="account_balance_wallet" /></q-item-section>
+            <q-item-section>Transaksi</q-item-section>
+          </q-item>
 
-            <q-item clickable v-ripple to="/transaksi" tag="router-link">
-              <q-item-section avatar>
-                <q-icon name="account_balance_wallet" />
-              </q-item-section>
+          <q-item clickable v-ripple to="/laporan" tag="router-link">
+            <q-item-section avatar><q-icon name="equalizer" /></q-item-section>
+            <q-item-section>Laporan</q-item-section>
+          </q-item>
 
-              <q-item-section>
-                Transaksi
-              </q-item-section>
-            </q-item>
+          <q-item clickable v-ripple to="/profil" tag="router-link">
+            <q-item-section avatar><q-icon name="person" /></q-item-section>
+            <q-item-section>Profil</q-item-section>
+          </q-item>
+        </q-list>
 
-            <q-item clickable v-ripple to="/laporan" tag="router-link">
-              <q-item-section avatar>
-                <q-icon name="equalizer" />
-              </q-item-section>
+        <q-space />
 
-              <q-item-section>
-                Laporan
-              </q-item-section>
-            </q-item>
+        <q-list>
+          <q-item clickable v-ripple to="/pengaturan" tag="router-link">
+            <q-item-section avatar><q-icon name="settings" /></q-item-section>
+            <q-item-section>Pengaturan</q-item-section>
+          </q-item>
 
-            <q-item clickable v-ripple to="/profil" tag="router-link">
-              <q-item-section avatar>
-                <q-icon name="person" />
-              </q-item-section>
+          <q-item clickable v-ripple to="/keluar" tag="router-link">
+            <q-item-section avatar>
+              <q-icon name="logout" color="negative" />
+            </q-item-section>
+            <q-item-section class="text-negative">Keluar</q-item-section>
+          </q-item>
+        </q-list>
+      </div>
+    </q-drawer>
 
-              <q-item-section>
-                Profil
-              </q-item-section>
-            </q-item>
-          </q-list>
-        </q-scroll-area>
-      </q-drawer>
+    <q-dialog v-model="modalTambahTransaksi" :backdrop-filter="'saturate(50%)'">
+      <q-card class="primary-color text-white" style="width: 700px;">
+        <q-card-section class="row items-center q-pb-none">
+          <div class="text-h6">Tambah Transaksi</div>
+          <q-space />
+          <q-btn icon="close" flat round dense v-close-popup />
+        </q-card-section>
 
-      <q-dialog v-model="modalTambahTransaksi" :backdrop-filter="'saturate(50%)'">
-        <q-card class="primary-color text-white" style="width: 700px;">
-          <q-card-section class="row items-center q-pb-none">
-            <div class="text-h6">Tambah Transaksi</div>
-            <q-space />
-            <q-btn icon="close" flat round dense v-close-popup />
-          </q-card-section>
-
-          <q-card-section>
-            <div>
-              <span>Nominal</span>
-              <q-input
-                style="font-size: 32px;"
+        <q-card-section>
+          <div>
+            <span>Nominal</span>
+            <q-input
+              style="font-size: 32px;"
+              dark
+              dense
+              borderless
+              input-class="text-right"
+              mask="###.###.###.###"
+              maxlength="15"
+              reverse-fill-mask
+              v-model="nominal" 
+              prefix="Rp."
+              placeholder="0"
+            />
+          </div>
+          
+          <div class="row q-mt-sm q-col-gutter-md">
+            <div class="col-4">
+              <span>Dompet</span>
+              <q-select 
                 dark
                 dense
                 borderless
-                input-class="text-right"
-                mask="###.###.###.###"
-                maxlength="15"
-                reverse-fill-mask
-                v-model="nominal" 
-                prefix="Rp."
+                v-model="dompet" 
+                :options="dompet_opt" 
               />
             </div>
-            
-            <div class="row q-mt-sm q-col-gutter-md">
-              <div class="col-4">
-                <span>Dompet</span>
-                <q-select 
-                  dark
-                  dense
-                  borderless
-                  v-model="dompet" 
-                  :options="dompet_opt" 
-                />
-              </div>
-              <div class="col-4">
-                <span>Kategori</span>
-                <q-select 
-                  dark
-                  dense
-                  borderless
-                  v-model="kategori" 
-                  :options="kategori_opt" 
-                />
-              </div>
-              <div class="col-4">
-                <span>Tanggal</span>
-                <q-input
-                  dark
-                  dense
-                  borderless
-                  v-model="tanggalTransaksi"  
-                  type="date" 
-                />
-              </div>
+            <div class="col-4">
+              <span>Kategori</span>
+              <q-select 
+                dark
+                dense
+                borderless
+                v-model="kategori" 
+                :options="kategori_opt" 
+              />
             </div>
-
-            <div class="q-mt-sm" style="width: 100%">
-              <span>Deskripsi</span>
+            <div class="col-4">
+              <span>Tanggal</span>
               <q-input
                 dark
                 dense
                 borderless
-                placeholder="Deskripsi transaksi"
-                v-model="deskripsi"
-                type="textarea"
+                v-model="tanggalTransaksi"  
+                type="date" 
               />
             </div>
+          </div>
 
-            <div class="row q-mt-md justify-end">
-              <q-btn
-                dense
-                icon="add"
-                color="primary"
-                label="Tambah Transaksi"
-                @click="tambahTransaksi"
-              />
-            </div>
-          </q-card-section>
-        </q-card>
-      </q-dialog>
+          <div class="q-mt-sm" style="width: 100%">
+            <span>Deskripsi</span>
+            <q-input
+              dark
+              dense
+              borderless
+              placeholder="Deskripsi transaksi"
+              v-model="deskripsi"
+              type="textarea"
+            />
+          </div>
+
+          <div class="row q-mt-md justify-end">
+            <q-btn
+              dense
+              icon="add"
+              color="primary"
+              label="Tambah Transaksi"
+              @click="tambahTransaksi"
+            />
+          </div>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
       
-      <q-page-container>
-        <router-view />
-      </q-page-container>
-    </q-layout>
+    <q-page-container>
+      <router-view />
+    </q-page-container>
+  </q-layout>
 </template>
 
 <script>
@@ -258,7 +249,7 @@
         bulan_opt: '',
         tahun: '',
         tahun_opt: '',
-        nominal: '0',
+        nominal: '',
         deskripsi: ''
       }
     },
