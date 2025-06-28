@@ -9,7 +9,7 @@
         <div style="font-weight: 300;">{{ tanggalHariIni }}</div>
       </q-toolbar>
       
-      <q-toolbar v-else-if="this.$route.name == 'transaksi'">
+      <q-toolbar v-else-if="this.$route.name == 'transaksi' || this.$route.name == 'laporan'">
         <q-toolbar-title class="cursor-pointer" @click="drawer = !drawer">
             <div class=" text-capitalize" style="font-size: 14px; line-height: 14px;">{{ this.$route.name}}</div>
             <div class="q-mt-xs" style="font-size: 12px; font-weight: 300; line-height: 14px;">{{ tanggalHariIni }}</div>
@@ -39,7 +39,7 @@
             </template>
           </q-select>
 
-          <q-btn color="primary" icon="calendar_today">
+          <q-btn color="primary" icon="calendar_today" v-if="this.$route.name == 'transaksi'">
             <q-menu>
               <div class="row no-wrap q-pa-md">
                 <div class="column">
