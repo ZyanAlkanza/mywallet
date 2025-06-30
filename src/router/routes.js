@@ -14,7 +14,7 @@ const routes = [
       { path: 'beranda', component: () => import('pages/Beranda.vue'), name: 'beranda' },
       { path: 'transaksi', component: () => import('pages/Transaksi.vue'), name: 'transaksi' },
       { path: 'laporan', component: () => import('pages/Laporan.vue'), name: 'laporan' },
-      // { path: 'profil', component: () => import('pages/Profil.vue'), name: 'profil' }
+      { path: 'profil', component: () => import('pages/Profil.vue'), name: 'profil' }
     ]
   },
 
