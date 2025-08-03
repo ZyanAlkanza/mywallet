@@ -229,6 +229,7 @@
   import beranda from '../pages/Beranda.vue'
   import dayjs from 'dayjs';
   import 'dayjs/locale/id'
+  import axios from 'src/boot/axios';
 
   export default({
     components: {
@@ -254,7 +255,8 @@
       }
     },
     mounted() {
-      this.tanggal()
+      this.tanggal();
+      this.loadDB();
     },
     methods: {
       tanggal() {
@@ -266,6 +268,15 @@
       },
       tambahTransaksi() {
         
+      },
+      async loadDB() {
+        try {
+          const data = await this.$api.get('users');
+          console.log('check api =>', data);
+          
+        } catch (error) {
+          console.log('api tidak tersambung!');
+        }
       }
     },
   })
