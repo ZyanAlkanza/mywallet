@@ -26,9 +26,7 @@
         >
           <q-card class="secondary-color">
             <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-              commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
+              <Dompet/>
             </q-card-section>
           </q-card>
         </q-expansion-item>
@@ -55,10 +53,12 @@
 
 <script>
 import Akun from '../components/pengaturan/Akun.vue'
+import Dompet from '../components//pengaturan/Dompet.vue'
 
 export default {
   components: {
-    Akun
+    Akun,
+    Dompet
   },
   data() {
     return {
