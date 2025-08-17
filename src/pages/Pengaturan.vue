@@ -38,9 +38,7 @@
         >
           <q-card class="secondary-color">
             <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-              commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
+              <Kategori/>
             </q-card-section>
           </q-card>
         </q-expansion-item>
@@ -54,11 +52,13 @@
 <script>
 import Akun from '../components/pengaturan/Akun.vue'
 import Dompet from '../components//pengaturan/Dompet.vue'
+import Kategori from '../components//pengaturan/Kategori.vue'
 
 export default {
   components: {
     Akun,
-    Dompet
+    Dompet,
+    Kategori
   },
   data() {
     return {
