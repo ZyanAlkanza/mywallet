@@ -15,8 +15,12 @@ const routes = [
       { path: 'transaksi', component: () => import('pages/Transaksi.vue'), name: 'transaksi' },
       { path: 'laporan', component: () => import('pages/Laporan.vue'), name: 'laporan' },
       { path: 'profil', component: () => import('pages/Profil.vue'), name: 'profil' },
-      { path: 'pengaturan', component: () => import('pages/Pengaturan.vue'), name: 'pengaturan' }
+      { path: 'pengaturan', component: () => import('pages/Pengaturan.vue'), name: 'pengaturan' },
     ]
+  },
+  {
+    path: '/login',
+    component: () => import('layouts/Login.vue')
   },
 
   // Always leave this as last one,
