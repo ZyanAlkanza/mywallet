@@ -125,7 +125,7 @@
             <q-item-section>Pengaturan</q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple to="/keluar" tag="router-link">
+          <q-item clickable v-ripple to="/login" tag="router-link">
             <q-item-section avatar>
               <q-icon name="logout" color="negative" />
             </q-item-section>
