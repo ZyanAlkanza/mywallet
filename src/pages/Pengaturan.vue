@@ -6,7 +6,7 @@
 
     <div class="col-12 q-mt-md">
       <q-list class="text-white">
-        <q-expansion-item
+        <!-- <q-expansion-item
           group="somegroup"
           icon="person"
           label="Akun"
@@ -17,7 +17,7 @@
               <Akun/>
             </q-card-section>
           </q-card>
-        </q-expansion-item>
+        </q-expansion-item> -->
         
         <q-expansion-item
           group="somegroup"
@@ -50,13 +50,13 @@
 </template>
 
 <script>
-import Akun from '../components/pengaturan/Akun.vue'
+// import Akun from '../components/pengaturan/Akun.vue'
 import Dompet from '../components//pengaturan/Dompet.vue'
 import Kategori from '../components//pengaturan/Kategori.vue'
 
 export default {
   components: {
-    Akun,
+    // Akun,
     Dompet,
     Kategori
   },

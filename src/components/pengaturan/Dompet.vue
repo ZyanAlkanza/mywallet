@@ -6,6 +6,7 @@
       dense
       hide-bottom
       separator="none"
+      title="Daftar Dompet"
       :rows="data"
       :columns="columns"
       :pagination="pagination"

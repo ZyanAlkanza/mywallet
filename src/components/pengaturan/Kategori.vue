@@ -1,6 +1,9 @@
 <template>
   <div class="row q-col-gutter-md">
-    <div class="col-12 text-right">
+    <div class="col-6 text-left" style="font-size: 20px; font-weight: 400;">
+      Daftar Kategori
+    </div>
+    <div class="col-6 text-right">
       <q-btn
         dense
         size="sm"
