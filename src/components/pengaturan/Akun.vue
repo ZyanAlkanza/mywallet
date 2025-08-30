@@ -8,8 +8,7 @@
       <q-input dense borderless dark label="Email" color="white" v-model="form.email"/>
       <q-input dense borderless dark label="Telepon" color="white" v-model="form.telepon"/>
       <q-file dense borderless dark label="Foto Profile" color="white" v-model="form.foto" />
-      <q-btn dense flat label="Simpan" color="primary" icon="save" class="q-pr-sm float-right" @click="ubah" v-show="edit === false"/>
-      <q-btn dense flat label="Ubah" color="primary" icon="edit" class="q-pr-sm float-right" @click="ubah" v-show="edit === true"/>
+      <q-btn dense flat label="Simpan" color="primary" icon="save" class="q-pr-sm float-right" @click="simpan"/>
     </div>
   </div>
 </template>
@@ -25,19 +24,16 @@ export default {
         telepon: '',
         foto:'',
       },
-      edit: true
     }
   },
   methods: {
-    ubah() {
-      this.edit = !this.edit;
-      if(this.edit === true){
-        this.$q.notify({
-          message: 'Berhasil mengubah profil',
-          color: 'primary',
-          icon: 'check'
-        })
-      }
+    simpan() {
+      this.$q.notify({
+        message: 'Berhasil mengubah profil',
+        color: 'primary',
+        icon: 'check'
+      });
+      this.$emit('simpanProfil')
     }
   },
 }
