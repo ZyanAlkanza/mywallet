@@ -32,6 +32,10 @@ export default defineConfig((ctx) => {
 
       'roboto-font', // optional, you are not bound to it
       'material-icons', // optional, you are not bound to it
+      'material-icons-outlined', // optional, you are not bound to it
+      'material-icons',
+      'material-icons-outlined',
+      'bootstrap-icons'
     ],
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-file#build
