@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="secondary-color q-pa-md" style="border-radius: 8px;">
+        <div class="bg-secondary-color q-pa-md" style="border-radius: 8px;">
             <div class="row justify-between">
                 <p class="text-white">Pengeluaran Terakhir</p>
                 <p class="text-primary cursor-pointer" style="font-size: 12px; font-weight: 300;">Lihat Semuanya</p>

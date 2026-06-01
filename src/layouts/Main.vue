@@ -1,5 +1,5 @@
 <template>
-  <q-layout class="primary-color q-px-sm" view="lHh Lpr lFf">
+  <q-layout class="bg-primary-color q-px-sm" view="lHh Lpr lFf">
     <q-header class="bg-transparent">
       <q-toolbar v-if="this.$route.name == 'beranda'">
         <q-toolbar-title class="cursor-pointer" @click="drawer = !drawer">
@@ -85,8 +85,8 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer class="primary-color q-py-sm q-pl-sm" show-if-above v-model="drawer" side="left">
-      <div class="column fit secondary-color q-py-sm text-white" style="border-radius: 8px;">
+    <q-drawer class="bg-primary-color q-py-sm q-pl-sm" show-if-above v-model="drawer" side="left">
+      <div class="column fit bg-secondary-color q-py-sm text-white" style="border-radius: 8px;">
         <q-list>
           <q-item class="row justify-center q-mb-md">
             <q-img
@@ -136,7 +136,7 @@
     </q-drawer>
 
     <q-dialog v-model="modalTambahTransaksi" :backdrop-filter="'saturate(50%)'">
-      <q-card class="primary-color text-white" style="width: 700px;">
+      <q-card class="bg-primary-color text-white" style="width: 700px;">
         <q-card-section class="row items-center q-pb-none">
           <div class="text-h6">Tambah Transaksi</div>
           <q-space />

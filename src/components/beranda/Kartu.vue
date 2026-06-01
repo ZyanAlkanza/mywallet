@@ -2,7 +2,7 @@
     <div class="">
         <div class="row q-col-gutter-sm">
             <div class="col">
-                <div class="row secondary-color q-pa-md" style="border-radius: 6px;">
+                <div class="row bg-secondary-color q-pa-md" style="border-radius: 6px;">
                     <div class="row justify-center items-center blue-color" style="font-size: 36px; border-radius: 8px;">
                         <q-icon name="attach_money" color="primary" class="q-pa-md"/>
                     </div>
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="row secondary-color q-pa-md" style="border-radius: 6px;">
+                <div class="row bg-secondary-color q-pa-md" style="border-radius: 6px;">
                     <div class="row justify-center items-center green-color" style="font-size: 36px; border-radius: 8px;">
                         <q-icon name="trending_up" color="green" class="q-pa-md"/>
                     </div>
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="row secondary-color q-pa-md" style="border-radius: 6px;">
+                <div class="row bg-secondary-color q-pa-md" style="border-radius: 6px;">
                     <div class="row justify-center items-center red-color" style="font-size: 36px; border-radius: 8px;">
                         <q-icon name="trending_down" color="red" class="q-pa-md"/>
                     </div>
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="row secondary-color q-pa-md" style="border-radius: 6px;">
+                <div class="row bg-secondary-color q-pa-md" style="border-radius: 6px;">
                     <div class="row justify-center items-center yellow-color" style="font-size: 36px; border-radius: 8px;">
                         <q-icon name="attach_money" color="yellow" class="q-pa-md"/>
                     </div>
