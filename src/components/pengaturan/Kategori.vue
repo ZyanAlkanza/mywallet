@@ -70,7 +70,7 @@
     <q-dialog
       v-model="tambahKategoriDialog"
     >
-      <q-card class="primary-color text-white" style="width: 500px">
+      <q-card class="bg-primary-color text-white" style="width: 500px">
         <q-card-section>
           <div class="text-h6">Tambah Kategori</div>
         </q-card-section>

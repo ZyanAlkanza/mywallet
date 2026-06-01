@@ -12,7 +12,7 @@
           label="Akun"
           default-opened
         >
-          <q-card class="secondary-color">
+          <q-card class="bg-secondary-color">
             <q-card-section>
               <Akun/>
             </q-card-section>
@@ -24,7 +24,7 @@
           icon="account_balance_wallet"
           label="Dompet"
         >
-          <q-card class="secondary-color">
+          <q-card class="bg-secondary-color">
             <q-card-section>
               <Dompet/>
             </q-card-section>
@@ -36,7 +36,7 @@
           icon="category"
           label="Kategori"
         >
-          <q-card class="secondary-color">
+          <q-card class="bg-secondary-color">
             <q-card-section>
               <Kategori/>
             </q-card-section>

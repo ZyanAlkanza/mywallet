@@ -7,7 +7,7 @@
             <div class="q-pt-sm q-pr-xs">
                 <div class="scroll-container">
                     
-                    <div class="row q-mb-sm secondary-color text-white" style="border-radius: 6px;" v-for="n in 15" :key="n">
+                    <div class="row q-mb-sm bg-secondary-color text-white" style="border-radius: 6px;" v-for="n in 15" :key="n">
                         <div class="col-12">
                             <div class="row q-py-sm q-px-md justify-between items-center">
                                 <div class="row">

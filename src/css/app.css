@@ -1,21 +1,24 @@
 /* app global css */
-.primary-color{
-    background-color: #2e2e2e;
+.bg-primary-color{
+    background-color: #111111;
 }
-.secondary-color{
-    background-color: #353535;
+.bg-secondary-color{
+    background-color: #1a1a1a;
 }
-.blue-color{
+.bg-blue-color{
     background-color: #0d6dea20;
 }
-.green-color{
+.bg-green-color{
     background-color: #1ea61d20;
 }
-.red-color{
+.bg-red-color{
     background-color: #d7223920;
 }
-.yellow-color{
+.bg-yellow-color{
     background-color: #fecd0520;
+}
+.font-primary-color{
+    color: #aaaaaa;
 }
 .font-secondary-color{
     color: #aaaaaa;

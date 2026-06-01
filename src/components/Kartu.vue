@@ -1,6 +1,6 @@
 <template>
     <div class="col">
-        <div class="row secondary-color q-pa-md" style="border-radius: 6px;">
+        <div class="row bg-secondary-color q-pa-md" style="border-radius: 6px;">
             <div class="row justify-center items-center" :class="properties.warna_background" style="font-size: 36px; border-radius: 8px;">
                 <q-icon :name="properties.icon" :color="properties.warna_icon" class="q-pa-md"/>
             </div>
