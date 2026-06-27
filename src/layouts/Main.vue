@@ -111,6 +111,22 @@
             <q-item-section>Laporan</q-item-section>
           </q-item>
 
+          <q-list>
+            <q-expansion-item
+              icon="savings"
+              label="Investasi"
+              expand-separator
+            >
+              <q-item clickable v-ripple to="/investasi/emas" tag="router-link" class="q-pl-xl">
+                <q-item-section avatar>
+                  <q-icon name="paid" />
+                </q-item-section>
+                <q-item-section>Emas</q-item-section>
+              </q-item>
+
+            </q-expansion-item>
+          </q-list>
+
           <q-item clickable v-ripple to="/profil" tag="router-link">
             <q-item-section avatar><q-icon name="person" /></q-item-section>
             <q-item-section>Profil</q-item-section>

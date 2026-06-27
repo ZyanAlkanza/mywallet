@@ -14,6 +14,16 @@ const routes = [
       { path: 'beranda', component: () => import('pages/Beranda.vue'), name: 'beranda' },
       { path: 'transaksi', component: () => import('pages/Transaksi.vue'), name: 'transaksi' },
       { path: 'laporan', component: () => import('pages/Laporan.vue'), name: 'laporan' },
+      {
+        path: 'investasi',
+        children: [
+          {
+            path: 'emas',
+            name: 'investasi-emas',
+            component: () => import('pages/investasi/Emas.vue')
+          }
+        ]
+      },
       { path: 'profil', component: () => import('pages/Profil.vue'), name: 'profil' },
       { path: 'pengaturan', component: () => import('pages/Pengaturan.vue'), name: 'pengaturan' },
     ]
