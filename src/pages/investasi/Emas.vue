@@ -285,7 +285,7 @@ export default({
           this.data = data.data;
 
         } catch (error) {
-          console.log('api tidak tersambung!');
+          console.log(error, 'api tidak tersambung!');
         }
     },
     async onSubmit() {
@@ -299,6 +299,7 @@ export default({
         this.onLoad();
       } catch (error) {
         this.$notify('Yahh!!! Kamu gagal menambahkan investasi emas', 'negative')
+        console.log(error, 'data tidak terkirim!');
       } finally {
         this.addModal = false;
       }
