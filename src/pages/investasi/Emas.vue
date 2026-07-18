@@ -15,7 +15,7 @@
     <div class="col-12">
       <q-table
         dense
-        class="bg-dark text-white"
+        class="secondary-color text-white"
         :rows="data"
         :columns="columns"
         row-key="id"
@@ -27,8 +27,15 @@
         </template>
         
         <template v-slot:body-cell-nama="props">
-          <q-td :props="props">
+          <q-td :props="props" style="width: 150px;">
             {{ props.row.nama ?? '-' }}
+          </q-td>
+        </template>
+        
+        <template v-slot:body-cell-status="props">
+          <q-td :props="props">
+            <q-badge v-if="props.row.status == 'Beli'" color="primary">{{ props.row.status }}</q-badge>
+            <q-badge v-if="props.row.status == 'Jual'" color="negative">{{ props.row.status }}</q-badge>
           </q-td>
         </template>
         
@@ -38,29 +45,49 @@
           </q-td>
         </template>
         
+        <template v-slot:body-cell-gramasi="props">
+          <q-td :props="props" class="text-right" style="width: 100px;">
+            <span class="q-mr-md">{{ props.row.gramasi ?? '-' }} gr</span>
+          </q-td>
+        </template>
+        
         <template v-slot:body-cell-harga_beli="props">
           <q-td :props="props">
-            {{ formatRupiah(props.row.harga_beli) ?? '-' }}
+            Rp. {{ formatRupiah(props.row.harga_beli) ?? '-' }}
           </q-td>
         </template>
         
         <template v-slot:body-cell-harga_jual="props">
           <q-td :props="props">
-            {{ formatRupiah(props.row.harga_jual) ?? '-' }}
+            Rp. {{ formatRupiah(props.row.harga_jual) ?? '-' }}
+          </q-td>
+        </template>
+        
+        <template v-slot:body-cell-tindakan="props">
+          <q-td :props="props">
+            <q-btn
+              dense
+              flat
+              size="sm"
+              color="negative"
+              icon="delete"
+            >
+              <q-tooltip class="bg-negative">Hapus Data</q-tooltip>
+            </q-btn>
           </q-td>
         </template>
       </q-table>
     </div>
 
     <q-dialog v-model="addModal" persistent>
-      <q-card class="bg-dark text-white" style="width: 500px; max-width: 80vw">
+      <q-card class="secondary-color text-white" style="width: 500px; max-width: 80vw">
         <q-card-section class="row items-center q-pb-none">
           <div class="flex items-center">
             <q-icon name="paid" size="sm"/>
-            <span class="text-h6 q-px-sm">Tambah Emas</span>
+            <span class="text-h6 q-px-sm">Tambah Transaksi Emas</span>
           </div>
           <q-space />
-          <q-btn icon="close" flat round dense v-close-popup />
+          <q-btn icon="close" flat round dense v-close-popup @click="onReset"/>
         </q-card-section>
 
         <q-card-section>
@@ -220,6 +247,12 @@ export default({
               align: 'left'
           },
           {
+              name: 'status',
+              field: 'status',
+              label: 'Status',
+              align: 'left'
+          },
+          {
               name: 'tgl_transaksi',
               field: 'tgl_transaksi',
               label: 'Tanggal Transaksi',
@@ -229,7 +262,7 @@ export default({
               name: 'gramasi',
               field: 'gramasi',
               label: 'Gramasi',
-              align: 'left'
+              align: 'center'
           },
           {
               name: 'harga_beli',
@@ -244,10 +277,10 @@ export default({
               align: 'left'
           },
           {
-              name: 'status',
-              field: 'status',
-              label: 'Status',
-              align: 'left'
+              name: 'tindakan',
+              field: 'tindakan',
+              label: 'Tindakan',
+              align: 'center'
           },
       ]
     }
@@ -297,6 +330,7 @@ export default({
         const data = await this.$api.post('investasi', payload);
         this.$notify('Yeaaay!!! Kamu berhasil menambahkan investasi emas', 'primary');
         this.onLoad();
+        this.onReset();
       } catch (error) {
         this.$notify('Yahh!!! Kamu gagal menambahkan investasi emas', 'negative')
         console.log(error, 'data tidak terkirim!');
