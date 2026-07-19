@@ -13,6 +13,42 @@
     </div>
 
     <div class="col-12">
+      <div class=" row q-mb-sm q-col-gutter-sm">
+        <div class="col-12 col-md-3 col-sm-6 col-xs-12">
+          <card 
+            icon="paid"
+            title="Total Gramasi" 
+            :value="total_gramasi" 
+            suffix="gr"/>
+        </div>
+        <div class="col-12 col-md-3 col-sm-6 col-xs-12">
+          <card 
+            icon="swap_horiz"
+            title="Total Transaksi" 
+            :value="total_transaksi" 
+            suffix="x"
+          />
+        </div>
+        <div class="col-12 col-md-3 col-sm-6 col-xs-12">
+          <card 
+            icon="north_east"
+            title="Total Beli" 
+            :value="total_beli" 
+            prefix="Rp. "
+          />
+        </div>
+        <div class="col-12 col-md-3 col-sm-6 col-xs-12">
+          <card 
+            icon="south_west"
+            title="Total Jual" 
+            :value="total_jual" 
+            prefix="Rp. "
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
       <q-table
         dense
         class="secondary-color text-white"
@@ -216,8 +252,13 @@
 import dayjs from 'dayjs'
 import { formatTanggal } from 'src/utils/date'
 import { formatToISO } from 'src/utils/date'
+import { formatRupiah } from 'src/utils/nominal';
+import card from 'src/components/investasi/emas/card.vue';
 
 export default({
+  components: {
+    card
+  },
   data() {
     return {
       loading: false,
@@ -231,6 +272,11 @@ export default({
         harga_beli: '',
         harga_jual: '',
       },
+
+      total_gramasi: 0,
+      total_transaksi: 0,
+      total_beli: 0,
+      total_jual: 0,
 
       data: [],
       columns: [
@@ -315,7 +361,11 @@ export default({
     async onLoad() {
       try {
           const data = await this.$api.get('investasi');
-          this.data = data.data;
+          this.data = data.data.data;
+          this.total_gramasi = data.data.total_gramasi ?? 0;
+          this.total_transaksi = data.data.total_transaksi ?? 0;
+          this.total_beli = formatRupiah(data.data.total_beli) ?? 0;
+          this.total_jual = formatRupiah(data.data.total_jual) ?? 0;
 
         } catch (error) {
           console.log(error, 'api tidak tersambung!');
