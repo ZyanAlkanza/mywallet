@@ -107,6 +107,7 @@
               size="sm"
               color="negative"
               icon="delete"
+              @click="onDelete(props.row)"
             >
               <q-tooltip class="bg-negative">Hapus Data</q-tooltip>
             </q-btn>
@@ -397,6 +398,34 @@ export default({
         harga_beli: '',
         harga_jual: '',
       }
+    },
+    onDelete(row) {
+        this.$q.dialog({
+          title: 'Hapus Transaksi Emas',
+          message: 'Apakah anda yakin ingin menghapus transaksi ini?',
+          dark: true,
+          ok: {
+            flat: true,
+            color: 'negative',
+            label: 'Ya, Hapus'
+          },
+          cancel: {
+            flat: true,
+            color: 'primary',
+            label: 'Batal'
+          }
+        }).onOk(async() => {
+          try {
+            const data = await this.$api.delete('investasi', {
+              data: { id: row.id }
+            });
+            this.$notify('Yeaaay!!! Kamu berhasil menghapus transaksi emas', 'primary');
+            this.onLoad();
+          } catch (error) {
+            this.$notify('Yahh!!! Kamu gagal menghapus transaksi emas', 'negative')
+            console.log(error, 'data tidak terkirim!');
+          }
+        })
     },
     formatRupiah(val) {
       if (!val) return '0'
