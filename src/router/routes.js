@@ -9,6 +9,7 @@ const routes = [
   {
     path: '/',
     component: () => import('layouts/Main.vue'),
+    meta: { requiresAuth: true },
     children: [
       { path: '', redirect: '/beranda' },
       { path: 'beranda', component: () => import('pages/Beranda.vue'), name: 'beranda' },
@@ -29,6 +30,7 @@ const routes = [
     ]
   },
   {
+    name: 'login',
     path: '/login',
     component: () => import('pages/Login.vue')
   },
